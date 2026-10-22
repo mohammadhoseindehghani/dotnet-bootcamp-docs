@@ -1,57 +1,37 @@
 
 # .NET Bootcamp Learning Hub
 
-Welcome to your learning space for C#, .NET, SQL Server, and backend development.
+Welcome to your learning hub.
 
-Here you will find session summaries, practical examples, important concepts, common mistakes, and exercises.
-
----
+A structured collection of session notes, practical code examples, key concepts, and exercises to help you become a better developer.
 
 ## Learning Paths
 
-<div class="grid cards" markdown>
+### C# Fundamentals
 
--   :material-language-csharp: **C# Fundamentals**
+Learn C# step by step, from the basics to object-oriented programming.
 
-    ---
+[Explore C# Fundamentals →](csharp/index.md)
 
-    Core C# concepts, syntax, methods, OOP, and practical examples.
+### SQL Server
 
-    [:octicons-arrow-right-24: Explore C#](csharp/index.md)
+Explore SQL queries, joins, grouping, and database concepts.
 
--   :material-database: **SQL Server**
+*Learning materials coming soon.*
 
-    ---
+### ASP.NET Core
 
-    Queries, joins, grouping, relationships, and database concepts.
+Explore backend development, Web APIs, and .NET practices.
 
-    [:octicons-arrow-right-24: Explore SQL](sql-server/index.md)
-
--   :material-code-braces: **.NET Development**
-
-    ---
-
-    Backend development concepts, coding practices, and useful notes.
-
-    [:octicons-arrow-right-24: Explore .NET](dotnet/index.md)
-
--   :material-bug: **Debugging & Common Mistakes**
-
-    ---
-
-    Learn from common errors, troubleshooting steps, and practical tips.
-
-    [:octicons-arrow-right-24: Explore Debugging](debugging/index.md)
-
-</div>
+*Learning materials coming soon.*
 
 ---
 
 ## How to Use This Hub
 
-- Review the summary after each session.
-- Practice the code examples yourself.
-- Try the exercises before checking any solutions.
-- Revisit the common mistakes when debugging your code.
+- Review the notes after each class.
+- Run the code examples yourself.
+- Practice the exercises before looking for solutions.
+- Revisit difficult concepts whenever needed.
 
-> The goal is not just to learn syntax, but to understand how to think and solve problems like a developer.
+> Understand the concept. Write the code. Practice until it makes sense.
