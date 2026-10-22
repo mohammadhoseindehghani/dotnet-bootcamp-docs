@@ -1,18 +1,32 @@
-
-# C# Fundamentals
-
-Welcome to the C# learning path.
-
-This section contains session summaries, code examples, important concepts, common mistakes, and practice exercises.
-
-## Sessions
-
-### Session 01 — First Session
-
-Review the concepts, examples, and key takeaways from the first session.
-
-[Read Session 01 →](session-01.md)
-
+---
+title: معرفی مسیر سی‌شارپ
 ---
 
-More sessions will be added as the bootcamp progresses.
+# مبانی سی‌شارپ
+
+<div class="lesson-intro">اولین قدم برای توسعه با دات‌نت؛ مفاهیم را یاد بگیر، مثال‌ها را اجرا کن و با تمرین جلو برو.</div>
+
+در این مسیر، خلاصهٔ جلسات، مثال‌های کدنویسی، نکته‌های مهم و تمرین‌ها کنار هم قرار می‌گیرند تا بعد از کلاس هم همراهت باشند.
+
+## از کجا شروع کنم؟
+
+اگر تازه وارد دنیای برنامه‌نویسی شده‌ای، از جلسهٔ اول شروع کن. هر مثال را خودت بنویس و قبل از اجرای برنامه، سعی کن خروجی آن را حدس بزنی.
+
+## جلسه‌ها
+
+<a class="session-card" href="session-01/">
+  <span class="step-number">۰۱</span>
+  <div><h3>جلسهٔ اول · شروع مسیر</h3><p>اهداف جلسه، مفاهیم اصلی، مثال‌ها و تمرین‌های مرور</p></div>
+  <span class="session-arrow" aria-hidden="true">←</span>
+</a>
+
+جلسه‌های بعدی هم‌زمان با پیشرفت بوت‌کمپ به این بخش اضافه می‌شوند.
+
+## روش پیشنهادی مطالعه
+
+1. ابتدا اهداف جلسه را بخوان.
+2. مفاهیم و مثال‌ها را با یادداشت‌های کلاس مقایسه کن.
+3. کدها را اجرا کن و با تغییر ورودی‌ها، رفتار برنامه را بررسی کن.
+4. تمرین‌ها را حل کن و سؤال‌هایت را برای جلسهٔ بعد یادداشت کن.
+
+> در یادگیری عجله نکن؛ فهمیدن یک مثال ساده، از رد شدن از چندین صفحه بدون تمرین ارزشمندتر است.

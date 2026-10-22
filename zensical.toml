@@ -1,25 +1,35 @@
-
 [project]
-site_name = ".NET Bootcamp | Learning Hub"
-site_description = "A practical learning hub for C#, .NET and SQL Server"
-site_author = "Bootcamp Mentor"
+site_name = "بوت‌کمپ دات‌نت"
+site_description = "جزوه‌ها، مثال‌ها و تمرین‌های فارسی بوت‌کمپ دات‌نت"
+site_author = "تیم آموزش بوت‌کمپ"
 site_url = "https://mohammadhoseindehghani.github.io/dotnet-bootcamp-docs/"
+extra_css = ["stylesheets/extra.css"]
 nav = [
-  { "Home" = "index.md" },
-  { "C# Fundamentals" = [
-    { "Overview" = "csharp/index.md" },
-    { "Session 01" = "csharp/session-01.md" }
+  { "خانه" = "index.md" },
+  { "مبانی سی‌شارپ" = [
+    { "معرفی مسیر" = "csharp/index.md" },
+    { "جلسهٔ اول" = "csharp/session-01.md" }
   ] }
 ]
 
 [project.theme]
 variant = "modern"
-language = "en"
-features = [
-  "navigation.tabs",
-  "navigation.sections",
-  "navigation.top",
-  "search.suggest",
-  "search.highlight",
-  "content.code.copy"
-]
+language = "fa"
+direction = "rtl"
+font.text = "Vazirmatn"
+font.code = "JetBrains Mono"
+features = ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy"]
+
+[[project.theme.palette]]
+scheme = "default"
+primary = "deep purple"
+accent = "teal"
+toggle.icon = "lucide/moon"
+toggle.name = "تغییر به حالت تیره"
+
+[[project.theme.palette]]
+scheme = "slate"
+primary = "deep purple"
+accent = "teal"
+toggle.icon = "lucide/sun"
+toggle.name = "تغییر به حالت روشن"
