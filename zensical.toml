@@ -8,7 +8,9 @@ nav = [
   { "خانه" = "index.md" },
   { "مبانی سی‌شارپ" = [
     { "معرفی مسیر" = "csharp/index.md" },
-    { "جلسهٔ اول" = "csharp/session-01.md" }
+    { "جلسهٔ اول · ورودی و متغیر" = "csharp/session-01.md" },
+    { "جلسهٔ دوم · شرط و حلقه" = "csharp/session-02.md" },
+    { "جلسهٔ سوم · آرایه و متن" = "csharp/session-03.md" }
   ] }
 ]
 

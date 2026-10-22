@@ -16,11 +16,23 @@ title: معرفی مسیر سی‌شارپ
 
 <a class="session-card" href="session-01/">
   <span class="step-number">۰۱</span>
-  <div><h3>جلسهٔ اول · شروع مسیر</h3><p>اهداف جلسه، مفاهیم اصلی، مثال‌ها و تمرین‌های مرور</p></div>
+  <div><h3>جلسهٔ اول · ورودی، متغیر و تبدیل نوع</h3><p><bdi dir="ltr">1405/07/23</bdi> · خروجی کنسول، کامنت، نام‌گذاری، نوع داده، تبدیل و ورودی کاربر</p></div>
   <span class="session-arrow" aria-hidden="true">←</span>
 </a>
 
-جلسه‌های بعدی هم‌زمان با پیشرفت بوت‌کمپ به این بخش اضافه می‌شوند.
+<a class="session-card" href="session-02/">
+  <span class="step-number">۰۲</span>
+  <div><h3>جلسهٔ دوم · عملگرها، شرط و حلقه</h3><p><bdi dir="ltr">1405/07/28</bdi> · محاسبات، متن، نویسه‌های ویژه، تصمیم‌گیری و تکرار</p></div>
+  <span class="session-arrow" aria-hidden="true">←</span>
+</a>
+
+<a class="session-card" href="session-03/">
+  <span class="step-number">۰۳</span>
+  <div><h3>جلسهٔ سوم · آرایه، کنترل حلقه و پردازش متن</h3><p><bdi dir="ltr">1405/07/30</bdi> · break و continue، آرایه، foreach، جست‌وجو و جدا کردن متن</p></div>
+  <span class="session-arrow" aria-hidden="true">←</span>
+</a>
+
+درس‌ها به ترتیب جلسات تنظیم شده‌اند. تمرین هر جلسه فقط به مفاهیم همان جلسه و جلسه‌های قبل نیاز دارد. جلسه‌های بعدی هم‌زمان با پیشرفت بوت‌کمپ اضافه می‌شوند.
 
 ## روش پیشنهادی مطالعه
 
