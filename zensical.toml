@@ -1,0 +1,20 @@
+
+[project]
+site_name = ".NET Bootcamp | Learning Hub"
+site_description = "Session notes, C# examples, SQL Server guides, and practical tips"
+site_author = "Bootcamp Mentor"
+site_url = "https://mohammadhoseindehghani.github.io/dotnet-bootcamp-docs/"
+
+[project.theme]
+variant = "modern"
+language = "en"
+features = [
+  "navigation.tabs",
+  "navigation.sections",
+  "navigation.top",
+  "search.suggest",
+  "search.highlight",
+  "content.code.copy"
+]
+
+[project.extra]
