@@ -1,9 +1,16 @@
 
 [project]
 site_name = ".NET Bootcamp | Learning Hub"
-site_description = "Session notes, C# examples, SQL Server guides, and practical tips"
+site_description = "A practical learning hub for C#, .NET and SQL Server"
 site_author = "Bootcamp Mentor"
 site_url = "https://mohammadhoseindehghani.github.io/dotnet-bootcamp-docs/"
+nav = [
+  { "Home" = "index.md" },
+  { "C# Fundamentals" = [
+    { "Overview" = "csharp/index.md" },
+    { "Session 01" = "csharp/session-01.md" }
+  ] }
+]
 
 [project.theme]
 variant = "modern"
@@ -16,5 +23,3 @@ features = [
   "search.highlight",
   "content.code.copy"
 ]
-
-[project.extra]
