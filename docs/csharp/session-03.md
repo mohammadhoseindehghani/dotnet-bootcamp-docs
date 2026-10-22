@@ -563,11 +563,65 @@ Local format: 09124567788
 
 **معیار پایان جلسه:** بتوانی یک آرایه را بدون خروج از محدوده پیمایش کنی و پیش از جدا کردن متن، وجود و جایگاه جداکننده را بررسی کنی و قالب شمارهٔ موبایل را با شرط و حلقه بسنجی.
 
+## نکات اضافه · مطالعهٔ بیشتر
+
+### دریافت عدد با int.TryParse
+
+در مثال‌های قبلی برای تبدیل ورودی از `Convert.ToInt32` استفاده کردیم و فرضمان این بود که کاربر عدد صحیح معتبر می‌نویسد. اگر کاربر `hello` یا عددی بزرگ‌تر از محدودهٔ `int` وارد کند، آن تبدیل خطا می‌دهد.
+
+`int.TryParse` تلاش می‌کند متن را به عدد صحیح تبدیل کند و موفقیت را با `true` یا `false` اعلام می‌کند؛ ورودیِ غیرقابل تبدیل باعث خطای تبدیل نمی‌شود. این بخش اختیاری است و برای فهم تمرین‌های اصلی جلسه لازم نیست.
+
+### مثال · دریافت نمره و بررسی محدوده
+
+```csharp
+Console.Write("Enter a score from 0 to 20: ");
+string input = Console.ReadLine() ?? "";
+
+int score;
+bool isNumber = int.TryParse(input, out score);
+
+if (!isNumber)
+{
+    Console.WriteLine("Please enter a valid integer.");
+}
+else if (score < 0 || score > 20)
+{
+    Console.WriteLine("Score must be between 0 and 20.");
+}
+else
+{
+    Console.WriteLine($"Accepted score: {score}");
+}
+```
+
+این فراخوانی دو نتیجه در اختیارمان می‌گذارد:
+
+- `isNumber` مشخص می‌کند تبدیل انجام شده است یا نه.
+- `out score` یعنی عددِ حاصل از تبدیل در متغیر `score` قرار می‌گیرد. فعلاً همین کاربرد `out` کافی است؛ نیازی به یادگیری جزئیات تعریف متدها نداریم.
+
+در این شکل از `TryParse`، اگر تبدیل ناموفق باشد، مقدار `score` صفر می‌شود؛ **صفر بودن را نشانهٔ شکست ندان**، چون ورودی `0` هم عدد صحیح معتبری است. همیشه نتیجهٔ `bool` را بررسی کن.
+
+| ورودی | نتیجهٔ مورد انتظار |
+| --- | --- |
+| `18` | `Accepted score: 18` |
+| `0` | `Accepted score: 0` |
+| `20` | `Accepted score: 20` |
+| `21` یا `-1` | تبدیل موفق است، ولی نمره خارج از محدوده است |
+| `hello`، `18.5` یا متن خالی | تبدیل به عدد صحیح ناموفق است |
+| `999999999999` | خارج از محدودهٔ `int`؛ تبدیل ناموفق است |
+
+موفق شدن تبدیل فقط یعنی متن به `int` قابل تبدیل بوده؛ معتبر بودن آن برای مسئله، مثل نمرهٔ بین ۰ تا ۲۰، بررسی جداگانه می‌خواهد. این روش گرد کردن عدد اعشاری هم نیست؛ متن `18.5` به نمرهٔ صحیح تبدیل نمی‌شود.
+
+**ارتباط با تمرین موبایل:** `TryParse` جای بررسی قالب شمارهٔ تلفن را نمی‌گیرد. شکل پیش‌فرض آن می‌تواند فاصلهٔ ابتدا و انتها یا علامت عدد را بپذیرد و تبدیل به عدد، صفر ابتدای شماره را نگه نمی‌دارد. شمارهٔ موبایل را همچنان به صورت `string` و با قوانین همان تمرین بررسی کن.
+
+**تمرین اختیاری:** همین مثال را داخل `do while` قرار بده تا دریافت ورودی تا زمان ورود یک عدد صحیح بین ۰ تا ۲۰ تکرار شود. به‌ترتیب `hello`، `21` و `18` را وارد کن؛ فقط ورودی آخر باید پذیرفته شود.
+
 ## منابع مطالعه
 
 - [W3Schools · break و continue](https://www.w3schools.com/cs/cs_break.php)، [آرایه‌ها](https://www.w3schools.com/cs/cs_arrays.php) و [foreach](https://www.w3schools.com/cs/cs_foreach_loop.php)
 - [W3Schools · دسترسی به رشته و جست‌وجو](https://www.w3schools.com/cs/cs_strings_access.php)
 - [Microsoft Learn · String.IndexOf](https://learn.microsoft.com/en-us/dotnet/api/system.string.indexof) و [String.Substring](https://learn.microsoft.com/en-us/dotnet/api/system.string.substring)
+- [Microsoft Learn · int.TryParse](https://learn.microsoft.com/en-us/dotnet/api/system.int32.tryparse)؛ برای بخش اختیاری دریافت عدد.
 - [Microsoft Learn · String.Split](https://learn.microsoft.com/en-us/dotnet/api/system.string.split)
 - [Microsoft Learn · آرایه‌ها](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/arrays)؛ برای این جلسه فقط بخش آرایهٔ یک‌بعدی را مرور کن.
 
