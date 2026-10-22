@@ -563,68 +563,12 @@ Local format: 09124567788
 
 **معیار پایان جلسه:** بتوانی یک آرایه را بدون خروج از محدوده پیمایش کنی و پیش از جدا کردن متن، وجود و جایگاه جداکننده را بررسی کنی و قالب شمارهٔ موبایل را با شرط و حلقه بسنجی.
 
-## مطالعهٔ بیشتر · آشنایی کوتاه با Regex
-
-این بخش **اختیاری و فراتر از تمرین‌های اصلی جلسه** است. اول راه‌حل شرط و حلقه را یاد بگیر؛ برای تکمیل تمرین‌های قبل نیازی به Regex نداری.
-
-Regex یا «عبارت منظم» روشی برای توصیف شکل متن با یک **الگو** است. به جای نوشتن چند شرط جدا، می‌گوییم متن مجاز چه ساختاری دارد. Regex خودش شماره‌ای را از نظر فعال بودن بررسی نمی‌کند؛ فقط الگوی نوشته‌شده را با متن مقایسه می‌کند.
-
-### بازنویسی تمرین موبایل با یک الگو
-
-الگوی این تمرین:
-
-```text
-\A(0|98|\+98|0098)?9[0-9]{9}\z
-```
-
-| بخش الگو | معنی |
-| --- | --- |
-| `\A` | شروع کل ورودی |
-| `( ... )` | کنار هم گذاشتن چند انتخاب در یک گروه |
-| `\|` | یا؛ انتخاب یکی از حالت‌های گروه |
-| `0`، `98`، `\+98`، `0098` | پیش‌شماره‌های مجاز؛ `\+` یعنی خود علامت مثبت |
-| `?` بعد از گروه | کل گروه پیش‌شماره می‌تواند یک بار بیاید یا اصلاً نیاید |
-| `9` | اولین رقم بخش اصلی، دقیقاً ۹ است |
-| `[0-9]` | یک رقم انگلیسی از صفر تا نه |
-| `{9}` | تکرار بخش قبل دقیقاً ۹ بار |
-| `\z` | پایان کل ورودی |
-
-پیش‌شماره اختیاری است تا شکل `9124567788` هم پذیرفته شود. `\A` و `\z` باعث می‌شوند کل متن سنجیده شود؛ وجود یک شمارهٔ درست در میان متن اضافه کافی نیست. از `[0-9]` استفاده می‌کنیم چون `\d` در رفتار پیش‌فرض Regex دات‌نت می‌تواند رقم‌های فارسی و عربی را هم بپذیرد؛ قانون این تمرین فقط رقم انگلیسی است. `\z` پایان دقیق را می‌خواهد، حتی نویسهٔ خط جدیدِ اضافه هم پذیرفته نمی‌شود.
-
-این کد را **جداگانه** در `Program.cs` اجرا کن و `using` را بالای فایل بگذار:
-
-```csharp
-using System.Text.RegularExpressions;
-
-Console.Write("Enter your mobile number: ");
-string phone = Console.ReadLine() ?? "";
-string pattern = @"\A(0|98|\+98|0098)?9[0-9]{9}\z";
-
-bool isValid = Regex.IsMatch(phone, pattern);
-
-if (isValid)
-{
-    Console.WriteLine("Valid mobile number");
-}
-else
-{
-    Console.WriteLine("Invalid mobile number");
-}
-```
-
-`using` اجازه می‌دهد نام `Regex` را کوتاه بنویسیم. `Regex.IsMatch` نتیجهٔ `bool` می‌دهد. علامت `@` قبل از رشته، کمک می‌کند بک‌اسلش‌های الگو را همان‌طور بنویسیم؛ مثلاً در این شکل نیازی به دو بار نوشتن بک‌اسلش نیست. این علامت ویژگی رشتهٔ سی‌شارپ است، نه بخشی از خود الگوی Regex.
-
-این نسخه فقط پذیرش یا رد قالب را انجام می‌دهد. برای تبدیل شمارهٔ معتبر به قالب داخلی می‌توانی همان بخش جداسازی پیش‌شماره در راه‌حل قبلی را بعد از پذیرش اجرا کنی؛ نیازی به یادگیری جایگزینی یا استخراج گروه‌های Regex در این جلسه نیست.
-
-**تمرین اختیاری:** تمام ورودی‌های معتبر و نامعتبر جدول را روی هر دو راه‌حل اجرا کن؛ نتیجه‌ها باید یکسان باشند. سپس یکی از نشانه‌های `?`، `{9}` یا `\z` را موقتاً تغییر بده و با یک ورودی توضیح بده چرا نتیجه عوض شده است. بعد الگوی اصلی را برگردان.
-
 ## منابع مطالعه
 
 - [W3Schools · break و continue](https://www.w3schools.com/cs/cs_break.php)، [آرایه‌ها](https://www.w3schools.com/cs/cs_arrays.php) و [foreach](https://www.w3schools.com/cs/cs_foreach_loop.php)
 - [W3Schools · دسترسی به رشته و جست‌وجو](https://www.w3schools.com/cs/cs_strings_access.php)
 - [Microsoft Learn · String.IndexOf](https://learn.microsoft.com/en-us/dotnet/api/system.string.indexof) و [String.Substring](https://learn.microsoft.com/en-us/dotnet/api/system.string.substring)
 - [Microsoft Learn · String.Split](https://learn.microsoft.com/en-us/dotnet/api/system.string.split)
-- برای بخش اختیاری: [راهنمای نشانه‌های Regex در دات‌نت](https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference) و [Regex.IsMatch](https://learn.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.ismatch)
 - [Microsoft Learn · آرایه‌ها](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/arrays)؛ برای این جلسه فقط بخش آرایهٔ یک‌بعدی را مرور کن.
 
 [→ جلسهٔ قبل: عملگرها، شرط و حلقه‌ها](session-02.md) · [بازگشت به فهرست جلسات](index.md)
