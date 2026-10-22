@@ -14,7 +14,8 @@ nav = [
 
 [project.theme]
 variant = "modern"
-language = "en"
+language = "fa"
+direction = "rtl"
 features = [
   "navigation.tabs",
   "navigation.sections",
