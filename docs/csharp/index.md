@@ -5,14 +5,14 @@ Welcome to the C# learning path.
 
 This section contains session summaries, code examples, important concepts, common mistakes, and practice exercises.
 
-## What You'll Find Here
-
-- **Session Notes:** Summaries of each class.
-- **Core Concepts:** Important C# concepts explained clearly.
-- **Code Examples:** Practical examples with explanations.
-- **Common Mistakes:** Errors to watch out for.
-- **Practice:** Exercises to reinforce your learning.
-
 ## Sessions
 
-Session notes will be added here as the bootcamp progresses.
+### Session 01 — First Session
+
+Review the concepts, examples, and key takeaways from the first session.
+
+[Read Session 01 →](session-01.md)
+
+---
+
+More sessions will be added as the bootcamp progresses.
