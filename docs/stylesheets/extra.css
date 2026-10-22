@@ -59,6 +59,11 @@ body { text-align: start; }
 .bootcamp-hero h1 span { color: var(--camp-accent); }
 .bootcamp-hero > p { max-width: 37rem; color: var(--camp-muted); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .65rem; margin-block: 1.6rem; }
+/* Buttons and whole-card links use their shape, border and focus ring as affordances. */
+.md-typeset a:is(.bootcamp-button, .learning-card, .session-card),
+.md-typeset a:is(.bootcamp-button, .learning-card, .session-card):is(:hover, :focus-visible, :active) {
+  text-decoration: none;
+}
 .md-typeset .bootcamp-button { display: inline-flex; align-items: center; padding: .6rem 1.2rem; border-radius: .7rem; font-weight: 650; border: 1px solid var(--camp-border); }
 .md-typeset .bootcamp-button.primary { background: #6750d8; border-color: #6750d8; color: white; }
 .md-typeset .bootcamp-button.secondary { color: var(--md-default-fg-color); background: var(--camp-surface); }
