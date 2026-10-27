@@ -625,4 +625,4 @@ else
 - [Microsoft Learn · String.Split](https://learn.microsoft.com/en-us/dotnet/api/system.string.split)
 - [Microsoft Learn · آرایه‌ها](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/arrays)؛ برای این جلسه فقط بخش آرایهٔ یک‌بعدی را مرور کن.
 
-[→ جلسهٔ قبل: عملگرها، شرط و حلقه‌ها](session-02.md) · [بازگشت به فهرست جلسات](index.md)
+[→ جلسهٔ قبل: عملگرها، شرط و حلقه‌ها](session-02.md) · [جلسهٔ بعد: متدها، نوع‌ها و حافظه ←](session-04.md)

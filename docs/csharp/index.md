@@ -32,6 +32,11 @@ title: معرفی مسیر سی‌شارپ
   <div><h3>جلسهٔ سوم · آرایه، کنترل حلقه و پردازش متن</h3><p><bdi dir="ltr">1405/07/30</bdi> · break و continue، آرایه، foreach، جست‌وجو و جدا کردن متن</p></div>
   <span class="session-arrow" aria-hidden="true">←</span>
 </a>
+<a class="session-card" href="session-04/">
+  <span class="step-number">۰۴</span>
+  <div><h3>جلسهٔ چهارم · متدها، نوع‌ها و حافظه</h3><p><bdi dir="ltr">1405/08/05</bdi> · ورودی و خروجی متد، استفادهٔ مجدد، محدوده، var، کپی مقدار و ارجاع، stack و heap</p></div>
+  <span class="session-arrow" aria-hidden="true">←</span>
+</a>
 </div>
 
 درس‌ها به ترتیب جلسات تنظیم شده‌اند. تمرین هر جلسه فقط به مفاهیم همان جلسه و جلسه‌های قبل نیاز دارد. جلسه‌های بعدی هم‌زمان با پیشرفت بوت‌کمپ اضافه می‌شوند.
