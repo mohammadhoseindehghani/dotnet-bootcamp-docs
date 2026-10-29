@@ -700,4 +700,4 @@ Console.WriteLine(message);
 - [Microsoft Learn · نوع‌های مقداری](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types)، [نوع‌های ارجاعی](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types) و [رشته‌ها و تغییرناپذیری](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/)
 - [Microsoft Learn · مبانی مدیریت حافظه](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)؛ منبع تکمیلی برای مدرس یا مطالعهٔ بعدی است و جزئیات آن برای تمرین‌های امروز لازم نیست.
 
-[→ جلسهٔ قبل: آرایه و پردازش متن](session-03.md) · [بازگشت به فهرست جلسات](index.md)
+[→ جلسهٔ قبل: آرایه و پردازش متن](session-03.md) · [جلسهٔ بعد: مسیر حل مسئله و جست‌وجو ←](session-05.md)
