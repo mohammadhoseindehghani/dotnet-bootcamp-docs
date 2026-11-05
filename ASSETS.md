@@ -23,3 +23,14 @@ In lesson Markdown, use a path relative to the source page, for example
 Zensical rewrites it for the generated page. Use the `lesson-illustration` figure
 class, meaningful alt text, the image's original width and height, a caption,
 and a link to the original image so students can enlarge detailed text.
+
+## Session 6 supplied images
+
+| Stored filename | Original Desktop file | Placement |
+| --- | --- | --- |
+| `docs/assets/images/session-06/datetime-timespan-guide.png` | `DateTime vs TimeSpan Cheat Sheet.png` | Additional reading: dates versus durations |
+| `docs/assets/images/session-06/persian-calendar-guide.png` | `C# PersianCalendar Infographic Guide.png` | Additional reading: Persian calendar conversion |
+
+These are unchanged copies. The PersianCalendar image contains incorrect claims
+about its type classification and several inconsistent example outputs. The
+lesson explicitly corrects them before and after the image, with runnable examples.
