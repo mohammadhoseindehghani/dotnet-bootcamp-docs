@@ -652,6 +652,146 @@ Student.PrintCreatedCount();             // 2
 
 > مشترک بودن دادهٔ static قدرت و مسئولیت دارد. هر بخش برنامه که آن را تغییر دهد، نتیجه برای همه دیده می‌شود. فقط داده‌ای را static کن که واقعاً متعلق به کل نوع باشد، نه برای فرار از ساختن شیء.
 
+## نکات اضافه‌تر · آشنایی با `enum`
+
+گاهی یک مقدار فقط باید یکی از چند حالت مشخص باشد؛ مثلاً وضعیت دانشجو فقط می‌تواند فعال، فارغ‌التحصیل یا تعلیق‌شده باشد. می‌توانیم این حالت‌ها را با عدد یا `string` نگه داریم، اما عددهایی مثل `1` و `2` معنی روشنی ندارند و در `string` نیز احتمال غلط املایی وجود دارد. **`enum` (نوع شمارشی)** مجموعه‌ای از نام‌های ثابت و مرتبط تعریف می‌کند و کد را خواناتر و محدودتر می‌سازد.
+
+### مثال اول · تعریف و استفاده از enum
+
+معمولاً `enum` را بیرون از کلاس و در فایل جداگانه می‌نویسیم.
+
+**`StudentStatus.cs`**
+
+```csharp
+public enum StudentStatus
+{
+    Active,
+    Graduated,
+    Suspended
+}
+```
+
+**`Program.cs`**
+
+```csharp
+StudentStatus status = StudentStatus.Active;
+
+Console.WriteLine(status); // Active
+
+if (status == StudentStatus.Active)
+{
+    Console.WriteLine("Student can select courses.");
+}
+```
+
+`StudentStatus` یک نوع جدید است و `Active` یکی از مقدارهای آن است. برای دسترسی به یک مقدار، ابتدا نام نوع و سپس نام مقدار را می‌نویسیم: `StudentStatus.Active`. نوشتن `"active"` یا عددی نامفهوم لازم نیست و ویرایشگر نیز مقدارهای مجاز را پیشنهاد می‌دهد.
+
+### مثال دوم · enum به‌عنوان property یک کلاس
+
+```csharp
+public class Student
+{
+    public string Name { get; private set; }
+    public StudentStatus Status { get; private set; }
+
+    public Student(string name, StudentStatus status)
+    {
+        Name = name;
+        Status = status;
+    }
+
+    public void ChangeStatus(StudentStatus newStatus)
+    {
+        Status = newStatus;
+    }
+}
+```
+
+```csharp
+Student student = new Student("Sara", StudentStatus.Active);
+
+Console.WriteLine(student.Status); // Active
+
+student.ChangeStatus(StudentStatus.Graduated);
+Console.WriteLine(student.Status); // Graduated
+```
+
+نوع پارامتر سازنده و متد `ChangeStatus` برابر `StudentStatus` است؛ بنابراین کدی مثل `student.ChangeStatus("Finished")` کامپایل نمی‌شود. این محدودیت کمک می‌کند فقط یکی از حالت‌های تعریف‌شده را ارسال کنیم.
+
+### مثال سوم · تصمیم‌گیری با `switch`
+
+```csharp
+StudentStatus status = StudentStatus.Suspended;
+
+switch (status)
+{
+    case StudentStatus.Active:
+        Console.WriteLine("Course selection is allowed.");
+        break;
+
+    case StudentStatus.Graduated:
+        Console.WriteLine("The student has graduated.");
+        break;
+
+    case StudentStatus.Suspended:
+        Console.WriteLine("Course selection is blocked.");
+        break;
+}
+```
+
+ترکیب `enum` و `switch` برای اجرای رفتار متفاوت در چند حالت محدود، خوانا و مناسب است. اگر هر حالت در آینده رفتار پیچیده و کاملاً متفاوتی پیدا کند، ممکن است کلاس‌ها و چندریختی طراحی بهتری باشند؛ `enum` جایگزین همیشگی ارث‌بری نیست.
+
+### مقدار عددی enum
+
+هر عضو `enum` در پشت صحنه یک مقدار صحیح دارد. به‌طور پیش‌فرض عضو اول صفر و عضوهای بعدی به‌ترتیب یک، دو و ... هستند. اگر مسئله به عددهای مشخص نیاز داشته باشد، می‌توانیم آن‌ها را صریح تعیین کنیم:
+
+```csharp
+public enum AccessLevel
+{
+    Guest = 1,
+    Student = 10,
+    Teacher = 20,
+    Admin = 30
+}
+
+AccessLevel level = AccessLevel.Teacher;
+int code = (int)level;
+
+Console.WriteLine(level); // Teacher
+Console.WriteLine(code);  // 20
+```
+
+به مقدار عددی داخلی برای منطق اصلی برنامه وابسته نشو، مگر اینکه آن عدد بخشی واقعی از قرارداد مسئله، فایل یا پایگاه داده باشد. در بیشتر شرط‌ها خودِ نام‌هایی مانند `AccessLevel.Teacher` روشن‌ترند.
+
+### تبدیل متن ورودی به enum
+
+برای تبدیل متن به مقدار شمارشی می‌توانیم از `Enum.TryParse` استفاده کنیم. آرگومان `true` باعث می‌شود بزرگی و کوچکی حروف مهم نباشد.
+
+```csharp
+Console.Write("Enter Active, Graduated, or Suspended: ");
+string input = Console.ReadLine() ?? "";
+
+bool isValid = Enum.TryParse(
+    input,
+    true,
+    out StudentStatus status);
+
+bool isDefined = Enum.IsDefined(typeof(StudentStatus), status);
+
+if (isValid && isDefined)
+{
+    Console.WriteLine($"Accepted status: {status}");
+}
+else
+{
+    Console.WriteLine("Invalid student status.");
+}
+```
+
+برای نمونه، ورودی‌های `Active` و `active` هر دو پذیرفته می‌شوند، اما `Finished` رد می‌شود. `TryParse` بعضی ورودی‌های عددی را هم تبدیل می‌کند؛ `Enum.IsDefined` بررسی می‌کند نتیجه واقعاً یکی از اعضایی باشد که در `StudentStatus` تعریف کرده‌ایم. مانند `int.TryParse`، نتیجهٔ تبدیل را پیش از استفاده بررسی کن.
+
+**تمرین اختیاری:** یک `enum` به نام `CourseLevel` با مقدارهای `Beginner`، `Intermediate` و `Advanced` بساز. سپس آن را به‌عنوان property کلاس `Course` قرار بده، سه درس با سطح‌های متفاوت بساز و با `switch` برای هر سطح یک پیام مناسب چاپ کن.
+
 ## ۱۰. تمرین‌های مرحله‌ای
 
 1. کلاس‌های `User` و `Student` بخش اول را بنویس. یک property به `User` و یک property مخصوص به `Student` اضافه کن و هر دو را از شیء دانشجو چاپ کن.
@@ -676,5 +816,6 @@ Student.PrintCreatedCount();             // 2
 - [Microsoft Learn · `base`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/base) و [Using constructors](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-constructors) برای زنجیرهٔ سازنده‌ها.
 - [Microsoft Learn · Polymorphism](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/polymorphism) برای `virtual`، `override` و نوع واقعی شیء.
 - [Microsoft Learn · Static classes and members](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members) برای کلاس static و عضوهای مشترک.
+- [Microsoft Learn · Enumeration types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum) برای تعریف و استفاده از `enum`.
 
 [→ جلسهٔ قبل: سازنده، کپسوله‌سازی و پراپرتی](session-08.md) · [بازگشت به فهرست جلسات](index.md)
