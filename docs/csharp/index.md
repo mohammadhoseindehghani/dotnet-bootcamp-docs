@@ -62,6 +62,11 @@ title: معرفی مسیر سی‌شارپ
   <div><h3>جلسهٔ نهم · ارث‌بری، چندریختی و اعضای static</h3><p><bdi dir="ltr">1405/08/21</bdi> · inheritance، protected، زنجیرهٔ سازنده‌ها، virtual و override، polymorphism و static class</p></div>
   <span class="session-arrow" aria-hidden="true">←</span>
 </a>
+<a class="session-card" href="session-10/">
+  <span class="step-number">۱۰</span>
+  <div><h3>جلسهٔ دهم · static، overload، sealed و abstraction</h3><p><bdi dir="ltr">1405/08/26</bdi> · static constructor، method overload، operator overload، sealed، abstract class و اعضای object</p></div>
+  <span class="session-arrow" aria-hidden="true">←</span>
+</a>
 </div>
 
 درس‌ها به ترتیب جلسات تنظیم شده‌اند. تمرین هر جلسه فقط به مفاهیم همان جلسه و جلسه‌های قبل نیاز دارد. جلسه‌های بعدی هم‌زمان با پیشرفت بوت‌کمپ اضافه می‌شوند.

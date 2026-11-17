@@ -16,7 +16,8 @@ nav = [
     { "جلسهٔ ششم · مرتب‌سازی و فیبوناچی" = "csharp/session-06.md" },
     { "جلسهٔ هفتم · آشنایی با شی‌ءگرایی و کلاس" = "csharp/session-07.md" },
     { "جلسهٔ هشتم · سازنده، کپسوله‌سازی و پراپرتی" = "csharp/session-08.md" },
-    { "جلسهٔ نهم · ارث‌بری، چندریختی و static" = "csharp/session-09.md" }
+    { "جلسهٔ نهم · ارث‌بری، چندریختی و static" = "csharp/session-09.md" },
+    { "جلسهٔ دهم · static، overload و abstraction" = "csharp/session-10.md" }
   ] }
 ]
 
