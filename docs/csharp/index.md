@@ -67,6 +67,11 @@ title: معرفی مسیر سی‌شارپ
   <div><h3>جلسهٔ دهم · static، overload، sealed و abstraction</h3><p><bdi dir="ltr">1405/08/26</bdi> · static constructor، method overload، operator overload، sealed، abstract class و اعضای object</p></div>
   <span class="session-arrow" aria-hidden="true">←</span>
 </a>
+<a class="session-card" href="session-11/">
+  <span class="step-number">۱۱</span>
+  <div><h3>جلسهٔ یازدهم · interface، extension method و List</h3><p><bdi dir="ltr">1405/08/28</bdi> · finalizer و indexer، قرارداد interface، چند پیاده‌سازی، extension method، List و آشنایی با Queue</p></div>
+  <span class="session-arrow" aria-hidden="true">←</span>
+</a>
 </div>
 
 درس‌ها به ترتیب جلسات تنظیم شده‌اند. تمرین هر جلسه فقط به مفاهیم همان جلسه و جلسه‌های قبل نیاز دارد. جلسه‌های بعدی هم‌زمان با پیشرفت بوت‌کمپ اضافه می‌شوند.
