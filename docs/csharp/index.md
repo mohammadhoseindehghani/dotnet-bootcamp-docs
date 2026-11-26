@@ -72,6 +72,11 @@ title: معرفی مسیر سی‌شارپ
   <div><h3>جلسهٔ یازدهم · interface، extension method و List</h3><p><bdi dir="ltr">1405/08/28</bdi> · finalizer و indexer، قرارداد interface، چند پیاده‌سازی، extension method، List و آشنایی با Queue</p></div>
   <span class="session-arrow" aria-hidden="true">←</span>
 </a>
+<a class="session-card" href="session-12/">
+  <span class="step-number">۱۲</span>
+  <div><h3>جلسهٔ دوازدهم · تحلیل پروژهٔ گلستان</h3><p><bdi dir="ltr">1405/09/03</bdi> · مدل موجودیت‌ها، مسیر ثبت و ورود، مرور OOP، تحلیل warningها و پیشنهادهای توسعه</p></div>
+  <span class="session-arrow" aria-hidden="true">←</span>
+</a>
 </div>
 
 درس‌ها به ترتیب جلسات تنظیم شده‌اند. تمرین هر جلسه فقط به مفاهیم همان جلسه و جلسه‌های قبل نیاز دارد. جلسه‌های بعدی هم‌زمان با پیشرفت بوت‌کمپ اضافه می‌شوند.
