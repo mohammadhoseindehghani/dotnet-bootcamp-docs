@@ -77,6 +77,11 @@ title: معرفی مسیر سی‌شارپ
   <div><h3>جلسهٔ دوازدهم · تحلیل پروژهٔ گلستان</h3><p><bdi dir="ltr">1405/09/03</bdi> · مدل موجودیت‌ها، مسیر ثبت و ورود، مرور OOP، تحلیل warningها و پیشنهادهای توسعه</p></div>
   <span class="session-arrow" aria-hidden="true">←</span>
 </a>
+<a class="session-card" href="session-13/">
+  <span class="step-number">۱۳</span>
+  <div><h3>جلسهٔ سیزدهم · ادامهٔ پروژهٔ گلستان، Boxing و Service</h3><p><bdi dir="ltr">1405/09/05</bdi> · مقایسهٔ نسخه‌ها، کاربر جاری، دادهٔ آزمایشی، Boxing و Unboxing و دلیل استفاده از Service</p></div>
+  <span class="session-arrow" aria-hidden="true">←</span>
+</a>
 </div>
 
 درس‌ها به ترتیب جلسات تنظیم شده‌اند. تمرین هر جلسه فقط به مفاهیم همان جلسه و جلسه‌های قبل نیاز دارد. جلسه‌های بعدی هم‌زمان با پیشرفت بوت‌کمپ اضافه می‌شوند.
