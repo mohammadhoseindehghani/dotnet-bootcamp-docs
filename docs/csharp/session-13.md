@@ -1,10 +1,10 @@
 ---
-title: جلسهٔ سیزدهم · ادامهٔ پروژهٔ گلستان، Boxing و Service
+title: جلسهٔ سیزدهم · پروژهٔ گلستان، Casting، Boxing و Service
 ---
 
-# جلسهٔ سیزدهم · توسعهٔ پروژهٔ گلستان، Boxing و لایهٔ Service
+# جلسهٔ سیزدهم · توسعهٔ پروژهٔ گلستان، Casting، Boxing و لایهٔ Service
 
-<div class="lesson-intro">تاریخ برگزاری: <bdi dir="ltr">1405/09/05</bdi><br>در این جلسه نسخهٔ دوم پروژهٔ گلستان را با نسخهٔ قبلی مقایسه می‌کنیم، مسیر ورود و انتخاب کلاس را قدم‌به‌قدم می‌خوانیم، با دلیل استفاده از Service آشنا می‌شویم و Boxing و Unboxing را با مثال‌های ساده یاد می‌گیریم.</div>
+<div class="lesson-intro">تاریخ برگزاری: <bdi dir="ltr">1405/09/05</bdi><br>در این جلسه نسخهٔ دوم پروژهٔ گلستان را با نسخهٔ قبلی مقایسه می‌کنیم، مسیر ورود و انتخاب کلاس را قدم‌به‌قدم می‌خوانیم، با دلیل استفاده از Service آشنا می‌شویم و Upcasting، Downcasting، Boxing و Unboxing را با مثال‌های ساده یاد می‌گیریم.</div>
 
 این جلسه هنوز مقدماتی است. هدف فعلاً ساختن معماری بی‌نقص یا سامانهٔ کامل دانشگاه نیست؛ می‌خواهیم مسئولیت بخش‌های مختلف برنامه را تشخیص بدهیم و تبدیل نوع‌ها را درست بفهمیم.
 
@@ -474,35 +474,145 @@ User user = student;
 
 هر دو `Student` و `User` reference type هستند. این Upcasting است، نه Boxing.
 
-## ۱۲. تفاوت Boxing با Upcasting و Downcasting
+## ۱۲. Upcasting و Downcasting
 
-این سه موضوع ظاهر مشابهی دارند، چون همگی نوع متغیر را تغییر می‌دهند؛ اما یکسان نیستند.
+در پروژهٔ گلستان، `Student` و `Teacher` از `User` ارث‌بری کرده‌اند. پس هر دانشجو یک کاربر هم هست؛ اما هر کاربر لزوماً دانشجو نیست. همین جمله، منطق دو تبدیل مهم را روشن می‌کند.
 
-| تبدیل | مبدأ | مقصد | مثال |
-| --- | --- | --- | --- |
-| Boxing | value type | `object` یا interface | `object x = 10;` |
-| Unboxing | object حاوی value type | همان value type دقیق | `int n = (int)x;` |
-| Upcasting | کلاس فرزند | کلاس والد | `User u = student;` |
-| Downcasting | کلاس والد | کلاس فرزند واقعی | `Student s = (Student)u;` |
+### Upcasting: نگاه‌کردن به شیء فرزند از زاویهٔ کلاس والد
 
-مثال پروژهٔ گلستان:
+وقتی reference یک شیء از کلاس فرزند را داخل متغیری از نوع کلاس والد قرار می‌دهیم، **Upcasting** انجام شده است:
 
 ```csharp
 Student student = new Student("Sara", "Ahmadi", "sara", "123456");
-
-User user = student;            // Upcasting
-Student again = (Student)user;  // Downcasting
+User user = student; // Upcasting
 ```
 
-در این مسیر value type وجود ندارد و شیء تازه‌ای برای جعبه‌کردن مقدار ساخته نمی‌شود. هر دو متغیر به همان شیء دانشجو اشاره می‌کنند.
+این تبدیل خودکار و امن است، چون هر `Student` حتماً یک `User` است. در اینجا:
+
+- شیء تازه‌ای ساخته نمی‌شود؛
+- اطلاعات دانشجو حذف نمی‌شود؛
+- هر دو متغیر به همان یک شیء اشاره می‌کنند؛
+- از طریق متغیر `user` فقط اعضایی را می‌بینیم که در نوع `User` تعریف شده‌اند.
 
 ```text
-User user ──────────┐
-                    ├──► همان شیء Student
-Student student ────┘
+Student student ────┐
+                    ├──► یک شیء واقعی از نوع Student
+User user ──────────┘
 ```
 
-اما در Boxing، مقدار value type داخل یک object تازه کپی می‌شود.
+برای مثال چون `StudentNO` فقط در کلاس `Student` تعریف شده است، خط زیر کامپایل نمی‌شود:
+
+```csharp
+// Console.WriteLine(user.StudentNO);
+```
+
+نوع متغیر `user` برابر `User` است؛ بنابراین کامپایلر از این مسیر فقط اعضای `User` را در اختیار ما می‌گذارد. بااین‌حال نوع واقعی شیء همچنان `Student` است. اگر یک متد `virtual` در `Student`، `override` شده باشد، نسخهٔ مربوط به `Student` اجرا می‌شود:
+
+```csharp
+User user = new Student("Sara", "Ahmadi", "sara", "123456");
+bool changed = user.ChangePassword("123456", "newPassword");
+// چون ChangePassword در Student بازنویسی شده، نسخهٔ Student اجرا می‌شود.
+```
+
+این ویژگی به ما اجازه می‌دهد کاربران مختلف را در یک مجموعه نگه داریم:
+
+```csharp
+User[] users =
+{
+    new Student("Sara", "Ahmadi", "sara", "123456"),
+    new Teacher("Ali", "Karimi", "ali", "987654")
+};
+
+foreach (User item in users)
+{
+    Console.WriteLine(item.UserName);
+}
+```
+
+با وجود متفاوت‌بودن نوع واقعی اعضای آرایه، می‌توانیم اعضای مشترک تعریف‌شده در `User` را برای همهٔ آن‌ها استفاده کنیم. این یکی از کاربردهای اصلی Upcasting در کنار polymorphism است.
+
+### Downcasting: برگشتن از نوع والد به نوع واقعی فرزند
+
+گاهی متغیر ما از نوع `User` است، اما برای کاری مشخص به اعضای مخصوص `Student` نیاز داریم. اگر شیء واقعی واقعاً دانشجو باشد، می‌توانیم **Downcasting** انجام دهیم:
+
+```csharp
+User user = new Student("Sara", "Ahmadi", "sara", "123456");
+Student student = (Student)user; // Downcasting
+
+Console.WriteLine(student.StudentNO);
+```
+
+Downcasting باید صریح نوشته شود، چون هر `User` الزاماً `Student` نیست. cast فقط نوع نگاه ما به همان شیء را تغییر می‌دهد و شیء تازه‌ای نمی‌سازد.
+
+### خطر Downcasting مستقیم
+
+کد زیر از نظر کامپایلر ممکن است، اما هنگام اجرا خطا می‌دهد:
+
+```csharp
+User user = new Teacher("Ali", "Karimi", "ali", "987654");
+Student student = (Student)user; // InvalidCastException
+```
+
+شیء واقعی `Teacher` است و نمی‌توان آن را `Student` در نظر گرفت. برای جلوگیری از این خطا، قبل از تبدیل نوع را بررسی می‌کنیم.
+
+### روش امن‌تر با `is`
+
+Pattern matching با `is` هم نوع واقعی را بررسی می‌کند و هم در صورت درست‌بودن، متغیر موردنیاز را می‌سازد:
+
+```csharp
+User user = InMemoryDB.CurrentUser;
+
+if (user is Student student)
+{
+    Console.WriteLine(student.StudentNO);
+}
+else
+{
+    Console.WriteLine("کاربر واردشده دانشجو نیست.");
+}
+```
+
+در پروژهٔ گلستان، این روش از cast مستقیم زیر امن‌تر است:
+
+```csharp
+// ممکن است در زمان اجرا خطا بدهد:
+Student student = (Student)InMemoryDB.CurrentUser;
+```
+
+### روش دیگر با `as`
+
+کلمهٔ `as` در صورت ناموفق‌بودن تبدیل، به‌جای ایجاد `InvalidCastException` مقدار `null` برمی‌گرداند:
+
+```csharp
+User user = InMemoryDB.CurrentUser;
+Student? student = user as Student;
+
+if (student != null)
+{
+    Console.WriteLine(student.StudentNO);
+}
+```
+
+برای کدهای جدید، الگوی `is Student student` معمولاً کوتاه‌تر و خواناتر است. `as` فقط برای reference typeها و nullable typeها قابل استفاده است.
+
+### مقایسه با Boxing و Unboxing
+
+این تبدیل‌ها ظاهر مشابهی دارند، اما مفهومشان یکسان نیست:
+
+| تبدیل | مبدأ | مقصد | خودکار یا صریح؟ | مثال |
+| --- | --- | --- | --- | --- |
+| Upcasting | کلاس فرزند | کلاس والد | خودکار و امن | `User u = student;` |
+| Downcasting | کلاس والد | کلاس فرزند واقعی | صریح یا همراه بررسی | `Student s = (Student)u;` |
+| Boxing | value type | `object` یا interface | معمولاً خودکار | `object x = 10;` |
+| Unboxing | object حاوی value type | همان value type دقیق | صریح | `int n = (int)x;` |
+
+در Upcasting و Downcasting میان دو reference type حرکت می‌کنیم و referenceها به همان شیء اشاره دارند. در Boxing، مقدار یک value type داخل یک object تازه کپی می‌شود. بنابراین این خط:
+
+```csharp
+User user = student;
+```
+
+**Boxing نیست**؛ یک Upcasting ساده است.
 
 ## ۱۳. خطاهای رایج در تبدیل‌ها
 
@@ -612,6 +722,8 @@ switch (user)
 8. آیا `object name = "Sara"` Boxing است؟ چرا؟
 9. تبدیل `Student` به `User` چه نام دارد؟
 10. چرا تبدیل `CurrentUser` به `Student` را Unboxing نمی‌نامیم؟
+11. چرا Upcasting به cast صریح نیاز ندارد، اما Downcasting ممکن است خطرناک باشد؟
+12. چگونه با `is` از `InvalidCastException` جلوگیری می‌کنیم؟
 
 ## ۱۸. تمرین‌ها
 
@@ -662,6 +774,15 @@ Student fourth = (Student)third;
 - نام کاربری وجود ندارد؛
 - رمز اشتباه است؛
 - ورود موفق است.
+
+### تمرین ۶: تشخیص نقش با Downcasting امن
+
+یک آرایه از نوع `User[]` بساز و داخل آن دو `Student` و یک `Teacher` قرار بده. با یک حلقهٔ `foreach`:
+
+1. نام کاربری همه را چاپ کن؛
+2. با الگوی `is Student student` دانشجوها را تشخیص بده؛
+3. فقط برای دانشجوها `StudentNO` را چاپ کن؛
+4. توضیح بده چرا cast مستقیم همهٔ اعضا به `Student` اشتباه است.
 
 ## جمع‌بندی
 

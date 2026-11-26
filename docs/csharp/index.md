@@ -79,7 +79,7 @@ title: معرفی مسیر سی‌شارپ
 </a>
 <a class="session-card" href="session-13/">
   <span class="step-number">۱۳</span>
-  <div><h3>جلسهٔ سیزدهم · ادامهٔ پروژهٔ گلستان، Boxing و Service</h3><p><bdi dir="ltr">1405/09/05</bdi> · مقایسهٔ نسخه‌ها، کاربر جاری، دادهٔ آزمایشی، Boxing و Unboxing و دلیل استفاده از Service</p></div>
+  <div><h3>جلسهٔ سیزدهم · پروژهٔ گلستان، Casting، Boxing و Service</h3><p><bdi dir="ltr">1405/09/05</bdi> · مقایسهٔ نسخه‌ها، کاربر جاری، Upcasting و Downcasting، Boxing و Unboxing و دلیل استفاده از Service</p></div>
   <span class="session-arrow" aria-hidden="true">←</span>
 </a>
 </div>

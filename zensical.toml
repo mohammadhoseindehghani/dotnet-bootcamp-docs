@@ -20,7 +20,7 @@ nav = [
     { "جلسهٔ دهم · static، overload و abstraction" = "csharp/session-10.md" },
     { "جلسهٔ یازدهم · interface، extension method و List" = "csharp/session-11.md" },
     { "جلسهٔ دوازدهم · تحلیل پروژهٔ گلستان" = "csharp/session-12.md" },
-    { "جلسهٔ سیزدهم · پروژهٔ گلستان، Boxing و Service" = "csharp/session-13.md" }
+    { "جلسهٔ سیزدهم · پروژهٔ گلستان، Casting، Boxing و Service" = "csharp/session-13.md" }
   ] }
 ]
 
